@@ -5,6 +5,10 @@ We will be editing this repo: https://github.com/cristiangarc/project-student-da
 ## Wire Frames
 
 ### Landing Page View
+Contains:
+    Header
+    Aside
+    Sections that change into views
 ![Landing Page View](assets/LandingPage-view.png)
 
 ### Student Details View
