@@ -20,3 +20,5 @@ Contains:
 **This component will be featured in all views**
 
 ![Cohort List Component](assets/COHORT_WIREFRAME.png)
+
+Test
