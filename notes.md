@@ -4,6 +4,8 @@ We will be editing this repo: https://github.com/cristiangarc/project-student-da
 
 ## Wire Frames
 
+This section will demonstrate how our react app will be structured
+
 ### Landing Page View
 Contains:
     Header
