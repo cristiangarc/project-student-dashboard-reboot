@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 
-const StudentDetails = () => { // pass prop for student data
+const StudentDetails = ( {students} ) => { // pass prop for student data
 //   const [formInput, setFormInput] = useState({});
 
   const handleSubmit = (event) => {
