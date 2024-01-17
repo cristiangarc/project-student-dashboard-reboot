@@ -27,7 +27,7 @@ const StudentDetails = ({ students }) => {
             <li>Ontrack? or Offtrack?</li>
           </ul>
 
-          <section>
+          {/* <section>
             <div>
               <p>Codewars</p>
               <ul>
@@ -55,11 +55,11 @@ const StudentDetails = ({ students }) => {
                 <li>Github: {student.certifications.github ? "Yes" : "No"}</li>
               </ul>
             </div>
-          </section>
+          </section> */}
         </div>
       ))}
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <label>
           Author:
           <input name="author" onChange={handleTextChange} />
@@ -69,7 +69,7 @@ const StudentDetails = ({ students }) => {
           <input name="comment" onChange={handleTextChange} />
         </label>
         <button type="submit">Submit</button>
-      </form>
+      </form> */}
     </section>
   );
 };
