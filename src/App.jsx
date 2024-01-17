@@ -1,11 +1,9 @@
 import Aside from "./components/Aside";
 import About from "./components/About";
+import AllStudents from "./components/AllStudents";
 import { Routes, Route, Link } from "react-router-dom";
-import StudentDetails from "./components/StudentDetails";
 import { useState } from "react";
 import students from "./data/data.json";
-import StudentDetails from "./components/AllStudents";
-import students from "./data/data.json"
 
 function App() {
     return (
@@ -14,7 +12,7 @@ function App() {
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
             <Aside />
-            <StudentDetails students={students} />
+            <AllStudents students={students} />
             <Routes>
                 <Route path="/about" element={<About />}></Route>
                 <Route
