@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import StudentDetails from "./components/StudentDetails";
 import { useState } from "react";
 import students from "./data/data.json";
+import { getAllStudents } from "./components/api.js";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Aside />
             <StudentDetails students={students} />
             <Routes>
+                <Route path="/" element={<>Hello</>}></Route>
                 <Route path="/about" element={<About />}></Route>
                 <Route
                     path="/:id/student"
