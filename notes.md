@@ -6,6 +6,10 @@ We will be editing this repo: https://github.com/cristiangarc/project-student-da
 
 This section will demonstrate how our react app will be structured
 
+### Data Flow Chart
+
+![Data Flow Chart](assets/Data-Flow-Chart.png)
+
 ### Landing Page View
 Contains:
     Header
