@@ -1,0 +1,8 @@
+div.members {
+    display: flex;
+    justify-content: flex-start;
+}
+
+div.team-member {
+    display: inline-block;
+}
