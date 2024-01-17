@@ -4,6 +4,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import StudentDetails from "./components/StudentDetails";
 import { useState } from "react";
 import students from "./data/data.json";
+import StudentDetails from "./components/AllStudents";
+import students from "./data/data.json"
 
 function App() {
     return (
