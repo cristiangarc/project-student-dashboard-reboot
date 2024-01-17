@@ -1,6 +1,6 @@
 div.members {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 div.team-member {
