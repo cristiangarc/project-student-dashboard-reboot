@@ -2,6 +2,7 @@ import Aside from "./components/Aside";
 import About from "./components/About";
 import { Routes, Route, Link } from "react-router-dom";
 import StudentDetails from "./components/StudentDetails";
+import students from "./data/data.json"
 
 function App() {
     return (

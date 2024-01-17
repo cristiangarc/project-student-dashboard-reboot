@@ -1,73 +1,72 @@
-// import React, { useState } from "react";
+import { useState } from "react";
 
-const StudentDetails = ( {students} ) => { // pass prop for student data
-//   const [formInput, setFormInput] = useState({});
+const StudentDetails = ({ students }) => {
+  const [formInput, setFormInput] = useState({ author: '', comment: '' });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // form submission stuff here
-    console.log("Form submitted with:", 
-    // formInput
-    );
+    console.log("Form submitted with:", formInput);
   };
 
   const handleTextChange = (event) => {
-    // setFormInput();
+    setFormInput({ ...formInput, [event.target.name]: event.target.value });
   };
+
+  const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
 
   return (
     <section>
-        {/* will have to map for each section to extract data and have it render on page */}
-      {/* {students.map((student, index) => ( */}
-        <div key="">
-            <img></img>
+      {students.map((student) => (
+        <div key={student.id}>
+          <img src={student.profilePhoto} alt={`${student.names.preferredName}'s Profile`} />
           <ul>
-            <li>Name: {"preferredName"} {"middleName"} {"surname"}</li>
-            <li>Email: </li>
-            <li>Date of Birth:</li>
+            <li>Name: {student.names.preferredName} {student.names.middleName} {student.names.surname}</li>
+            <li>Email: {student.username}</li>
+            <li>Date of Birth: {student.dob}</li>
+            {/* boolean stuff to determine which one for next line */}
             <li>Ontrack? or Offtrack?</li>
           </ul>
+
+          <section>
+            <div>
+              <p>Codewars</p>
+              <ul>
+                <li>Current Total: {student.codewars.current.total}</li>
+                <li>Last Week: {student.codewars.current.lastWeek}</li>
+                <li>Goal: {student.codewars.goal.total}</li>
+                <li>Percent of Goal Achieved: {calculatePercentage(student.codewars.current.total, student.codewars.goal.total)}%</li>
+                <li>Cohort: {student.cohort.cohortCode}</li>
+              </ul>
+            </div>
+            <div>
+              <p>Scores</p>
+              <ul>
+                <li>Assignments: {student.cohort.scores.assignments}</li>
+                <li>Projects: {student.cohort.scores.projects}</li>
+                <li>Assessments: {student.cohort.scores.assessments}</li>
+              </ul>
+            </div>
+            <div>
+              <p>Certifications</p>
+              <ul>
+                <li>Resume: {student.certifications.resume ? "Yes" : "No"}</li>
+                <li>LinkedIn: {student.certifications.linkedin ? "Yes" : "No"}</li>
+                <li>Mock Interview: {student.certifications.mockInterview ? "Yes" : "No"}</li>
+                <li>Github: {student.certifications.github ? "Yes" : "No"}</li>
+              </ul>
+            </div>
+          </section>
         </div>
-      {/* ))} */}
-    <section/>
-    <section>
-    <div>
-        <p>Codewars</p>
-        <ul>
-            <li>Current Total: 1804</li>
-            <li>Last Week: 144</li>
-            <li>Goal: 850</li>
-            <li>Percent of Goal Achieved: </li>
-            <li>Cohort: Winter2025</li>
-        </ul>
-    </div>
-    <div>
-        <p>Scores</p>
-        <ul>
-            <li>Assignments</li>
-            <li>Projects</li>
-            <li>Assessments</li>
-        </ul>
-    </div>
-    <div>
-        <p>Certifications</p>
-        <ul>
-            <li>Resume</li>
-            <li>LinkedIn</li>
-            <li>Mock Interview</li>
-            <li>Github</li>
-        </ul>
-    </div>
-    </section>
+      ))}
 
       <form onSubmit={handleSubmit}>
         <label>
           Author:
-          <input name="Author" onChange={handleTextChange} />
+          <input name="author" onChange={handleTextChange} />
         </label>
         <label>
           Comment:
-          <input name="Comment" onChange={handleTextChange} />
+          <input name="comment" onChange={handleTextChange} />
         </label>
         <button type="submit">Submit</button>
       </form>
