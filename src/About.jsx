@@ -3,18 +3,28 @@ const About = () => {
         {
             name: "Cristian Garcia",
             github: "https://github.com/cristiangarc",
+            funFact: "I've traveled to ~20 states across the US",
+        },
+        {
+            name: "Julissa Garcia",
+            github: "https://github.com/JuliGarc91",
             funFact: "",
         },
-        { name: "Julissa Garcia", github: "", funFact: "" },
-        { name: "Enoch Tagoe", github: "", funFact: "" },
+        {
+            name: "Enoch Tagoe",
+            github: "https://github.com/EnochTagoe1",
+            funFact: "",
+        },
     ];
 
     return (
-        <div>
+        <div className="members">
             {teamMembers.map((member) => (
-                <div>
+                <div className="team-member">
                     <p>Name: {member.name}</p>
-                    <p>Github: {member.github}</p>
+                    <a href={member.github} target="_blank">
+                        Github: {member.github}
+                    </a>
                     <p>Fun Fact: {member.funFact}</p>
                 </div>
             ))}
