@@ -4,7 +4,17 @@ We will be editing this repo: https://github.com/cristiangarc/project-student-da
 
 ## Wire Frames
 
+This section will demonstrate how our react app will be structured
+
+### Data Flow Chart
+
+![Data Flow Chart](assets/Data-Flow-Chart.png)
+
 ### Landing Page View
+Contains:
+    Header
+    Aside
+    Sections that change into views
 ![Landing Page View](assets/LandingPage-view.png)
 
 ### Student Details View
@@ -14,3 +24,5 @@ We will be editing this repo: https://github.com/cristiangarc/project-student-da
 **This component will be featured in all views**
 
 ![Cohort List Component](assets/COHORT_WIREFRAME.png)
+
+Test
