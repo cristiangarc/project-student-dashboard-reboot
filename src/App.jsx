@@ -1,4 +1,5 @@
-import About from "./About";
+import Aside from "./components/Aside";
+import About from "./components/About";
 import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
             <h1>Student Dashboard</h1>
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
+            <Aside />
             <Routes>
                 <Route path="/about" element={<About />}></Route>
             </Routes>
