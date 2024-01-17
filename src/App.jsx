@@ -12,7 +12,7 @@ function App() {
             <h1>Student Dashboard</h1>
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
-            <Aside />
+            <Aside students={students} />
             <StudentDetails students={students} />
             <Routes>
                 <Route path="/" element={<>Hello</>}></Route>
