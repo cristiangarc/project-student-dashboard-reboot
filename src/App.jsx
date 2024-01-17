@@ -1,6 +1,7 @@
 import Aside from "./components/Aside";
 import About from "./components/About";
 import AllStudents from "./components/AllStudents";
+import StudentDetails from "./components/AllStudents";
 import { Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 import students from "./data/data.json";
