@@ -2,7 +2,3 @@ div.members {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-
-div.team-member {
-    display: inline-block;
-}
