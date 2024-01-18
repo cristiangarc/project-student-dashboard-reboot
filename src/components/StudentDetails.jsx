@@ -1,10 +1,10 @@
 import React from 'react'
-import { useState } from "react";
+// import { useState } from "react";
 import { useParams } from 'react-router-dom';
-// import AllStudents from "./AllStudents"
+import StudentDetailsForm from './StudentDetailsForm';
 
 const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
-    const [formInput, setFormInput] = useState({ author: '', comment: '' });
+    // const [formInput, setFormInput] = useState({ author: '', comment: '' });
     const { id } = useParams();
     const student = students.find(s => s.id === id);
   
@@ -12,14 +12,14 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
       return <div>Student not found</div>;
     } 
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log("Form submitted with:", formInput);
-    };
+    // const handleSubmit = (event) => {
+    //   event.preventDefault();
+    //   console.log("Form submitted with:", formInput);
+    // };
   
-    const handleTextChange = (event) => {
-      setFormInput({ ...formInput, [event.target.name]: event.target.value });
-    };
+    // const handleTextChange = (event) => {
+    //   setFormInput({ ...formInput, [event.target.name]: event.target.value });
+    // };
   
     const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
   return (
@@ -68,7 +68,8 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
                 <li>Github: {student.certifications.github ? "Yes" : "No"}</li>
               </ul>
             </div>
-            <form onSubmit={handleSubmit}>
+            <StudentDetailsForm />
+            {/* <form onSubmit={handleSubmit}>
                 <label>
                 Author:
                 <input name="author" onChange={handleTextChange} />
@@ -78,7 +79,7 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
                 <input name="comment" onChange={handleTextChange} />
                 </label>
                 <button type="submit">Submit</button>
-            </form>
+            </form> */}
           </section>
           
     </section>
