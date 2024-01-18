@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import "./About.css";
 
 const About = () => {
@@ -22,7 +23,7 @@ const About = () => {
     return (
         <div className="members">
             {teamMembers.map((member) => (
-                <div className="team-member">
+                <div key={v4()} className="team-member">
                     <p>Name: {member.name}</p>
                     <a href={member.github} target="_blank">
                         Github: {member.github}
