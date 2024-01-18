@@ -27,7 +27,7 @@ function App() {
     const filterStudents = (cohort) => {
         const cohortNoSpace = cohort.replace(" ", "");
         if (cohortNoSpace === "all") {
-            setFilteredStudents([]);
+            setFilteredStudents(students);
         } else {
             const filtered = students.filter(
                 (student) => student["cohort"]["cohortCode"] === cohortNoSpace
