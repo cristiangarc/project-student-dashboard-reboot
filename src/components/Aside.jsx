@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 
-const Aside = ({ students }) => {
-    const [students, setStudents] = useState(students);
+const Aside = ({ students, setFilteredStudents }) => {
+    const navigate = useNavigate();
 
     const getAllCohorts = () => {
         const cohorts = [];
@@ -15,17 +16,28 @@ const Aside = ({ students }) => {
 
     const allCohorts = getAllCohorts();
 
-    const filterStudents = () => {};
+    const filterStudents = (cohort) => {
+        if (cohort === "all") {
+            navigate("/");
+        } else {
+            const filtered = students.filter(
+                (student) => student["cohort"]["cohortCode"] === cohort
+            );
+            setFilteredStudents(filtered);
+        }
+    };
 
     return (
         <div>
             Choose a Class by Start Date
             <ul>
-                <li key={v4()} onClick={filterStudents}>
+                <li key={v4()} onClick={() => filterStudents("all")}>
                     All Students
                 </li>
                 {allCohorts.map((cohort) => (
-                    <li key={v4()}>{cohort}</li>
+                    <li key={v4()} onClick={() => filterStudents(cohort)}>
+                        {cohort}
+                    </li>
                 ))}
             </ul>
         </div>

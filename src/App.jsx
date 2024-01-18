@@ -8,23 +8,24 @@ import students from "./data/data.json";
 import { getAllStudents } from "./components/api.js";
 
 function App() {
+    const [filteredStudents, setFilteredStudents] = useState([]);
+
     return (
         <div>
             <h1>Student Dashboard</h1>
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
-            <Aside students={students} />
+            <Aside
+                students={students}
+                setFilteredStudents={setFilteredStudents}
+            />
             <Routes>
-                <Route path="/" element={<>Hello</>}></Route>
-                <Route path="/about" element={<About />}></Route>
                 <Route
-                    path="/students"
+                    path="/"
                     element={<AllStudents students={students} />}
-                />
-                <Route
-                    path="/students/:id"
-                    element={<StudentDetails student={students[0]} />}
-                />
+                ></Route>
+                <Route path="/about" element={<About />}></Route>
+                <Route path="/students/:id" element={<StudentDetails />} />
             </Routes>
         </div>
     );
