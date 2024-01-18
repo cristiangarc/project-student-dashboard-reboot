@@ -1,10 +1,33 @@
-import React from 'react'
-import AllStudents from "./AllStudents"
+import { useState } from "react";
 
-const StudentDetails = () => { //add prop to get data used in AllStudents component for for individual student in this component
+const StudentDetails = ({ students }) => {
+  const [formInput, setFormInput] = useState({ author: '', comment: '' });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Form submitted with:", formInput);
+  };
+
+  const handleTextChange = (event) => {
+    setFormInput({ ...formInput, [event.target.name]: event.target.value });
+  };
+
+  const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
+
   return (
     <section>
-          <section>
+      {students.map((student) => (
+        <div key={student.id}>
+          <img src={student.profilePhoto} alt={`${student.names.preferredName}'s Profile`} />
+          <ul>
+            <li>Name: {student.names.preferredName} {student.names.middleName} {student.names.surname}</li>
+            <li>Email: {student.username}</li>
+            <li>Date of Birth: {student.dob}</li>
+            {/* boolean stuff to determine which one for next line */}
+            <li>Ontrack? or Offtrack?</li>
+          </ul>
+
+          {/* <section>
             <div>
               <p>Codewars</p>
               <ul>
@@ -32,8 +55,11 @@ const StudentDetails = () => { //add prop to get data used in AllStudents compon
                 <li>Github: {student.certifications.github ? "Yes" : "No"}</li>
               </ul>
             </div>
+          </section> */}
+        </div>
+      ))}
 
-            <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <label>
           Author:
           <input name="author" onChange={handleTextChange} />
@@ -43,10 +69,9 @@ const StudentDetails = () => { //add prop to get data used in AllStudents compon
           <input name="comment" onChange={handleTextChange} />
         </label>
         <button type="submit">Submit</button>
-      </form>
-          </section>
+      </form> */}
     </section>
-  )
-}
+  );
+};
 
-export default StudentDetails
+export default StudentDetails;
