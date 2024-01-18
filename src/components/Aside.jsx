@@ -29,7 +29,7 @@ const Aside = ({ students, filterStudents }) => {
     allCohorts = standardiseCohorts();
 
     return (
-        <div>
+        <aside>
             Choose a Class by Start Date
             <ul>
                 <li key={v4()} onClick={() => filterStudents("all")}>
@@ -41,7 +41,7 @@ const Aside = ({ students, filterStudents }) => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </aside>
     );
 };
 
