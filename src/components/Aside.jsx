@@ -33,8 +33,40 @@ const Aside = ({ students, filterStudents }) => {
     allCohorts = standardiseCohorts();
 
     const sortCohorts = () => {
-        // return allCohorts.sort((a,b) => {
-        // })
+        const seasonsAndYearsObj = {};
+
+        for (const cohort of allCohorts) {
+            // console.log(cohort);
+            const arr = cohort.split(" ");
+            const currYear = seasonsAndYearsObj[arr[1]];
+            if (currYear) {
+                seasonsAndYearsObj[arr[1]].push(cohort);
+            } else {
+                seasonsAndYearsObj[arr[1]] = [cohort];
+            }
+            console.log(seasonsAndYearsObj);
+        }
+
+        // get all keys from 2015
+
+        // sort those keys
+
+        // ...
+
+        const sorted = allCohorts.sort((a, b) => {
+            const year1 = Number(a.split(" ")[1]);
+            const year2 = Number(b.split(" ")[1]);
+            if (year1 < year2) {
+                return -1;
+            } else if (year1 > year2) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
+        // console.log(sorted);
+        return sorted;
     };
 
     return (
