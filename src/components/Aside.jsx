@@ -1,6 +1,10 @@
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { v4 } from "uuid";
 
 const Aside = ({ students, filterStudents }) => {
+    const [sortedCohorts, setSortedCohorts] = useState(null);
+
     const getAllCohorts = () => {
         const cohorts = [];
         for (const student of students) {
@@ -28,9 +32,15 @@ const Aside = ({ students, filterStudents }) => {
 
     allCohorts = standardiseCohorts();
 
+    const sortCohorts = () => {
+        // return allCohorts.sort((a,b) => {
+        // })
+    };
+
     return (
         <aside>
-            Choose a Class by Start Date
+            <h2>Choose a Class by Start Date</h2>
+            <button onClick={sortCohorts}>Sort Descending By Year</button>
             <ul>
                 <li key={v4()} onClick={() => filterStudents("all")}>
                     All Students
