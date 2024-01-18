@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const StudentDetails = ({ students }) => {
+const AllStudents = ({ students }) => {
 
   const determineTrackStatusAll = (student) => {
     const isOnTrack = student.certifications.resume &&
@@ -9,8 +9,8 @@ const StudentDetails = ({ students }) => {
                       student.certifications.mockInterview &&
                       student.codewars.current.total > 850;
 
-    return isOnTrack ? 'On Track' : 'Off Track';
-  }
+        return isOnTrack ? "On Track" : "Off Track";
+    }
 
   return (
     <section>
@@ -31,5 +31,4 @@ const StudentDetails = ({ students }) => {
   );
 };
 
-export default StudentDetails;
-
+export default AllStudents;
