@@ -1,4 +1,3 @@
-// import Aside from "./components/Aside";
 import Aside from "./components/Aside.jsx";
 import About from "./components/About";
 import AllStudents from "./components/AllStudents";
@@ -10,7 +9,18 @@ import { getAllStudents } from "./components/api.js";
 
 function App() {
     const [filteredStudents, setFilteredStudents] = useState([]);
-
+    const determineTrackStatusStudentDetails = (students) => {
+        return students.map(student => {
+            const isOnTrack = student.certifications.resume &&
+                              student.certifications.linkedin &&
+                              student.certifications.github &&
+                              student.certifications.mockInterview &&
+                              student.codewars.current.total > 850;
+        
+            return isOnTrack ? 'On Track' : 'Off Track';
+        });
+    }
+    
     const filterStudents = (cohort) => {
         const cohortNoSpace = cohort.replace(" ", "");
         if (cohortNoSpace === "all") {
@@ -40,9 +50,14 @@ function App() {
                     element={<AllStudents students={filteredStudents} />}
                 ></Route>
                 <Route path="/about" element={<About />}></Route>
-                <Route
-                    path="/:id/student"
-                    element={<StudentDetails students={students} />}
+                <Route 
+                    path="/:id/student" 
+                    element={
+                    <StudentDetails 
+                        students={students} 
+                        determineTrackStatusStudentDetails={determineTrackStatusStudentDetails} 
+                    />
+                } 
                 />
             </Routes>
         </div>
