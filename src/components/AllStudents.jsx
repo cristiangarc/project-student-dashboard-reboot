@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const StudentDetails = ({ students }) => {
 
-  function determineTrackStatus(student) {
+  const determineTrackStatusAll = (student) => {
     const isOnTrack = student.certifications.resume &&
                       student.certifications.linkedin &&
                       student.certifications.github &&
@@ -22,7 +22,7 @@ const StudentDetails = ({ students }) => {
               <li>Name: {student.names.preferredName} {student.names.middleName} {student.names.surname}</li>
               <li>Email: {student.username}</li>
               <li>Date of Birth: {student.dob}</li>
-              <li>Status: {determineTrackStatus(student)}</li>
+              <li>Status: {determineTrackStatusAll(student)}</li> {/* Updated this line */}
             </ul>
           </div>
         </Link>
@@ -32,3 +32,4 @@ const StudentDetails = ({ students }) => {
 };
 
 export default StudentDetails;
+

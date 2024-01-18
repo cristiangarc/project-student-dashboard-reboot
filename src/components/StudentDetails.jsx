@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from "react";
 import { useParams } from 'react-router-dom';
-import AllStudents from "./AllStudents"
+// import AllStudents from "./AllStudents"
 
-const StudentDetails = ({ students }) => {
+const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
     const [formInput, setFormInput] = useState({ author: '', comment: '' });
     const { id } = useParams();
     const student = students.find(s => s.id === id);
@@ -33,7 +33,9 @@ const StudentDetails = ({ students }) => {
                 <li>Email: {student.username}</li>
                 <li>Date of Birth: {student.dob}</li>
                 {/* Boolean stuff to determine ontrack/offtrack status */}
-                <li>Ontrack? or Offtrack?</li>
+                <li>
+                  Status: {determineTrackStatusStudentDetails([student])[0]}
+                </li>
               </ul>
             </div>
           </section>
