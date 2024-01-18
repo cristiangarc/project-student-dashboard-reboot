@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import AllStudents from "./AllStudents"
 
-const StudentDetails = ( {students} ) => { //add prop to get data used in AllStudents component for for individual student in this component
+const StudentDetails = ({ students }) => {
     const [formInput, setFormInput] = useState({ author: '', comment: '' });
     const { id } = useParams();
     const student = students.find(s => s.id === id);
