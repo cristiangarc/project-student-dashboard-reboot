@@ -2,9 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 
-const Aside = ({ students, setFilteredStudents }) => {
-    const navigate = useNavigate();
-
+const Aside = ({ students, filterStudents }) => {
     const getAllCohorts = () => {
         const cohorts = [];
         for (const student of students) {
@@ -14,18 +12,23 @@ const Aside = ({ students, setFilteredStudents }) => {
         return cohorts;
     };
 
-    const allCohorts = getAllCohorts();
+    let allCohorts = getAllCohorts();
 
-    const filterStudents = (cohort) => {
-        if (cohort === "all") {
-            navigate("/");
-        } else {
-            const filtered = students.filter(
-                (student) => student["cohort"]["cohortCode"] === cohort
-            );
-            setFilteredStudents(filtered);
+    const standardiseCohorts = () => {
+        const newCohorts = [];
+        for (const cohort of allCohorts) {
+            const firstNum = cohort
+                .split("")
+                .find((char) => Number.isInteger(Number(char)));
+            const firstNumIndex = cohort.indexOf(firstNum);
+            const season = cohort.slice(0, firstNumIndex);
+            const number = cohort.slice(firstNumIndex);
+            newCohorts.push(`${season} ${number}`);
         }
+        return newCohorts;
     };
+
+    allCohorts = standardiseCohorts();
 
     return (
         <div>
