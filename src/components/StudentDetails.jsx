@@ -1,9 +1,43 @@
 import React from 'react'
+import { useState } from "react";
+import { useParams } from 'react-router-dom';
 import AllStudents from "./AllStudents"
 
-const StudentDetails = () => { //add prop to get data used in AllStudents component for for individual student in this component
+const StudentDetails = ( {students} ) => { //add prop to get data used in AllStudents component for for individual student in this component
+    const [formInput, setFormInput] = useState({ author: '', comment: '' });
+    const { id } = useParams();
+    const student = students.find(s => s.id === id);
+  
+    if (!student) {
+      return <div>Student not found</div>;
+    } 
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log("Form submitted with:", formInput);
+    };
+  
+    const handleTextChange = (event) => {
+      setFormInput({ ...formInput, [event.target.name]: event.target.value });
+    };
+  
+    const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
   return (
     <section>
+
+          <section>
+            <div key={student.id}>
+              <img src={student.profilePhoto} alt={`${student.names.preferredName}'s Profile`} />
+              <ul>
+                <li>Name: {student.names.preferredName} {student.names.middleName} {student.names.surname}</li>
+                <li>Email: {student.username}</li>
+                <li>Date of Birth: {student.dob}</li>
+                {/* Boolean stuff to determine ontrack/offtrack status */}
+                <li>Ontrack? or Offtrack?</li>
+              </ul>
+            </div>
+          </section>
+
           <section>
             <div>
               <p>Codewars</p>
@@ -32,19 +66,19 @@ const StudentDetails = () => { //add prop to get data used in AllStudents compon
                 <li>Github: {student.certifications.github ? "Yes" : "No"}</li>
               </ul>
             </div>
-
             <form onSubmit={handleSubmit}>
-        <label>
-          Author:
-          <input name="author" onChange={handleTextChange} />
-        </label>
-        <label>
-          Comment:
-          <input name="comment" onChange={handleTextChange} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+                <label>
+                Author:
+                <input name="author" onChange={handleTextChange} />
+                </label>
+                <label>
+                Comment:
+                <input name="comment" onChange={handleTextChange} />
+                </label>
+                <button type="submit">Submit</button>
+            </form>
           </section>
+          
     </section>
   )
 }

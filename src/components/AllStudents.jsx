@@ -1,18 +1,18 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 const StudentDetails = ({ students }) => {
-  const [formInput, setFormInput] = useState({ author: '', comment: '' });
+  // const [formInput, setFormInput] = useState({ author: '', comment: '' });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted with:", formInput);
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log("Form submitted with:", formInput);
+  // };
 
-  const handleTextChange = (event) => {
-    setFormInput({ ...formInput, [event.target.name]: event.target.value });
-  };
+  // const handleTextChange = (event) => {
+  //   setFormInput({ ...formInput, [event.target.name]: event.target.value });
+  // };
 
-  const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
+  // const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
 
   return (
     <section>
