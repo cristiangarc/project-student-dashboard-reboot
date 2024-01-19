@@ -1,10 +1,8 @@
-import React from "react";
-// import { useState } from "react";
-import { useParams } from "react-router-dom";
-import StudentDetailsForm from "./StudentDetailsForm";
+import React from 'react'
+import { useParams } from 'react-router-dom';
+import StudentDetailsForm from './StudentDetailsForm';
 
 const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
-    // const [formInput, setFormInput] = useState({ author: '', comment: '' });
     const { id } = useParams();
     const student = students.find((s) => s.id === id);
 
