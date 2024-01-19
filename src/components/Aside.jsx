@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 
 const Aside = ({ students, filterStudents }) => {
-    const [sortedCohorts, setSortedCohorts] = useState(null);
+    // const [sortedCohorts, setSortedCohorts] = useState(null);
+    const [sortedCohorts, setSortedCohorts] = useState([]); // New line added
+    const [ascending, setAscending] = useState(true); // State to track sorting order
+
     const getAllCohorts = () => {
         const cohorts = [];
         for (const student of students) {
@@ -31,15 +34,13 @@ const Aside = ({ students, filterStudents }) => {
     allCohorts = standardiseCohorts();
 
     const sortCohorts = () => {
-        // const seasonsAndYearsObj = {};
+        // Removed previous commented code for clarity
         const seasonOrder = {
             "Winter": 1,
             "Spring": 2,
             "Summer": 3,
             "Fall": 4
         };
-
-
         // for (const cohort of allCohorts) {
         //     // console.log(cohort);
         //     const arr = cohort.split(" ");
@@ -66,52 +67,55 @@ const Aside = ({ students, filterStudents }) => {
             console.log(seasonsAndYearsObj);
         } */
 
-
-        // get all keys from 2015
-        //const cohorts2015 = seasonsAndYearsObj["2015"];
-        // sort those keys
-        //const sorted2015 = cohorts2015.sort();
-        // ...
-
-        // const sorted = allCohorts.sort((a, b) => {
-        //     const year1 = Number(a.split(" ")[1]);
-        //     const year2 = Number(b.split(" ")[1]);
-        //     if (year1 < year2) {
-        //         return -1;
-        //     } else if (year1 > year2) {
-        //         return 1;
-        //     } else {
-        //         return 0;
-        //     }
-        // });
         /*sort by year first then season*/
+        // const sorted = allCohorts.sort((a, b) => {
+        //     const [seasonA, yearA] = a.split(" ");
+        //     const [seasonB, yearB] = b.split(" ");
+
+        //     const yearComparison = Number(yearA) - Number(yearB);
+        //     if (yearComparison !== 0) return yearComparison;
+
+        //     return seasonOrder[seasonA] - seasonOrder[seasonB];
+        // });
+
         const sorted = allCohorts.sort((a, b) => {
             const [seasonA, yearA] = a.split(" ");
             const [seasonB, yearB] = b.split(" ");
 
             const yearComparison = Number(yearA) - Number(yearB);
-            if (yearComparison !== 0) return yearComparison;
+            if (yearComparison !== 0) return ascending ? yearComparison : -yearComparison; // the syntax -yearComparison is used to reverse the order of comparison for the years
 
-            return seasonOrder[seasonA] - seasonOrder[seasonB];
+            return ascending ? (seasonOrder[seasonA] - seasonOrder[seasonB]) : (seasonOrder[seasonB] - seasonOrder[seasonA]); // if ascending true then sorted like this seasonOrder[seasonA] - seasonOrder[seasonB]
+            // seasonOrder[seasonA] accesses the numerical value associated with the season seasonA same for B
+            //positive number means "place a before b" (since seasonA is later in the year than seasonB), and a negative number means "place b before a
         });
 
-        // console.log(sorted);
-        //return sorted;
         setSortedCohorts(sorted);
     };
+
     useEffect(() => {
         sortCohorts();
-    }, [students]);
+    }, [students, ascending]); // added ascending to useEffect that way sorting stuff changes depending on whenever ascending useState changes too (not just students)
+
+    const toggleSortOrder = () => { // handler to switch sorting order
+        setAscending(!ascending);
+    };
 
     return (
         <aside>
             <h2>Choose a Class by Start Date</h2>
-            <button onClick={sortCohorts}>Sort Descending By Year</button>
+            {/* <button onClick={sortCohorts}>Sort Descending By Year</button> */}
+            {/* the button text now reflects the current sort order, indicating what action (ascending or descending sort) will be performed when it is clicked next */}
+            <button onClick={toggleSortOrder}>Sort {ascending ? "Descending" : "Ascending"} By Year</button>
             <ul>
                 <li key={v4()} onClick={() => filterStudents("all")}>
                     All Students
                 </li>
-                {allCohorts.map((cohort) => (
+                {/* {allCohorts.map((cohort) => (
+                    <li key={v4()} onClick={() => filterStudents(cohort)}>
+                        {cohort}
+                    </li> */}
+                {sortedCohorts.map((cohort) => (
                     <li key={v4()} onClick={() => filterStudents(cohort)}>
                         {cohort}
                     </li>
