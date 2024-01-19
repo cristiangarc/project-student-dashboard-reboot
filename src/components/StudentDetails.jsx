@@ -42,12 +42,8 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
         const year = dobArr[2];
         const dateObj = new Date(year, monthIndex, day);
         const month = months[dateObj.getMonth()];
-        console.log(dobArr);
-        console.log(`${month} ${day}, ${year}`);
         return `${month} ${day}, ${year}`;
     };
-
-    getBirthdayString(students[0]);
 
     const calculatePercentage = (current, goal) =>
         ((current / goal) * 100).toFixed(2);
