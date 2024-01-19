@@ -85,6 +85,18 @@ const Aside = ({ students, filterStudents }) => {
         //     }
         // });
         /*sort by year first then season*/
+        // const sorted = allCohorts.sort((a, b) => {
+        //     const year1 = Number(a.split(" ")[1]);
+        //     const year2 = Number(b.split(" ")[1]);
+        //     if (year1 < year2) {
+        //         return -1;
+        //     } else if (year1 > year2) {
+        //         return 1;
+        //     } else {
+        //         return 0;
+        //     }
+        // });
+        /*sort by year first then season*/
         const sorted = allCohorts.sort((a, b) => {
             const [seasonA, yearA] = a.split(" ");
             const [seasonB, yearB] = b.split(" ");
@@ -94,6 +106,16 @@ const Aside = ({ students, filterStudents }) => {
 
             return seasonOrder[seasonA] - seasonOrder[seasonB];
         });
+        //Original code:
+        // const sorted = allCohorts.sort((a, b) => {
+        //     const [seasonA, yearA] = a.split(" ");
+        //     const [seasonB, yearB] = b.split(" ");
+
+        //     const yearComparison = Number(yearA) - Number(yearB);
+        //     if (yearComparison !== 0) return yearComparison;
+
+        //     return seasonOrder[seasonA] - seasonOrder[seasonB];
+        // });
 
         // console.log(sorted);
         //return sorted;
