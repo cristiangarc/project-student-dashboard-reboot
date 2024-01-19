@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import StudentDetailsForm from "./StudentDetailsForm";
+import "./StudentDetails.css"
 
 import { v4 } from "uuid";
 
@@ -49,7 +50,7 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
     const calculatePercentage = (current, goal) =>
         ((current / goal) * 100).toFixed(2);
     return (
-        <section>
+        <section className="details">
             <section>
                 <div key={student.id}>
                     <img
