@@ -25,6 +25,16 @@ function App() {
         });
     };
 
+    const getCohort = (students) => {
+        const cohrt = students.reduce((acc, curr) => {
+            const currCohort = curr["cohort"]["cohortCode"];
+            if (!acc.includes(currCohort)) acc.push(currCohort);
+            return acc;
+        }, []);
+        console.log(cohrt.length);
+        return cohrt.length > 1 ? "all" : cohrt[0];
+    };
+
     const filterStudents = (cohort) => {
         const cohortNoSpace = cohort.replace(" ", "");
         if (cohortNoSpace === "all") {
@@ -57,7 +67,12 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<AllStudents students={filteredStudents} />}
+                        element={
+                            <AllStudents
+                                students={filteredStudents}
+                                getCohort={getCohort}
+                            />
+                        }
                     ></Route>
                     <Route path="/about" element={<About />}></Route>
                     <Route
