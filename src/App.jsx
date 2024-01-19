@@ -4,7 +4,6 @@ import AllStudents from "./components/AllStudents";
 import StudentDetails from "./components/StudentDetails";
 import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import students from "./data/data.json";
 import { getAllStudents } from "./components/api.js";
 
 import "./App.css";
@@ -31,8 +30,18 @@ function App() {
             if (!acc.includes(currCohort)) acc.push(currCohort);
             return acc;
         }, []);
-        console.log(cohrt.length);
-        return cohrt.length > 1 ? "all" : cohrt[0];
+
+        const nameMapping = {
+            Winter2025: "Winter 2025",
+            Spring2025: "Spring 2025",
+            Summer2025: "Summer 2025",
+            Fall2025: "Fall 2025",
+            Winter2026: "Winter 2026",
+            Spring2026: "Spring 2026",
+            Summer2026: "Summer 2026",
+            Fall2026: "Fall 2026",
+        };
+        return cohrt.length > 1 ? "all" : nameMapping[cohrt];
     };
 
     const filterStudents = (cohort) => {
