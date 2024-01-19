@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AllStudents = ({ students }) => {
+const AllStudents = ({ students, getCohort }) => {
     const determineTrackStatusAll = (student) => {
         const isOnTrack =
             student.certifications.resume &&
@@ -14,7 +14,11 @@ const AllStudents = ({ students }) => {
 
     return (
         <section className="students">
-            <h2>All Students</h2>
+            <h2>
+                {getCohort(students) === "all"
+                    ? "All Students"
+                    : getCohort(students)}
+            </h2>
             <h3>Total Students: {students.length}</h3>
             {students.map((student) => (
                 <Link to={`/${student.id}/student`} key={student.id}>
