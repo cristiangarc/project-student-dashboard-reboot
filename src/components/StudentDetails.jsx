@@ -1,25 +1,14 @@
 import React from 'react'
-// import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import StudentDetailsForm from './StudentDetailsForm';
 
-const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
-    // const [formInput, setFormInput] = useState({ author: '', comment: '' });
+const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
     const { id } = useParams();
     const student = students.find(s => s.id === id);
   
     if (!student) {
       return <div>Student not found</div>;
     } 
-
-    // const handleSubmit = (event) => {
-    //   event.preventDefault();
-    //   console.log("Form submitted with:", formInput);
-    // };
-  
-    // const handleTextChange = (event) => {
-    //   setFormInput({ ...formInput, [event.target.name]: event.target.value });
-    // };
   
     const calculatePercentage = (current, goal) => ((current / goal) * 100).toFixed(2);
   return (
@@ -32,7 +21,6 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
                 <li>Name: {student.names.preferredName} {student.names.middleName} {student.names.surname}</li>
                 <li>Email: {student.username}</li>
                 <li>Date of Birth: {student.dob}</li>
-                {/* Boolean stuff to determine ontrack/offtrack status */}
                 <li>
                   Status: {determineTrackStatusStudentDetails([student])[0]}
                 </li>
@@ -69,19 +57,8 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails  }) => {
               </ul>
             </div>
             <StudentDetailsForm />
-            {/* <form onSubmit={handleSubmit}>
-                <label>
-                Author:
-                <input name="author" onChange={handleTextChange} />
-                </label>
-                <label>
-                Comment:
-                <input name="comment" onChange={handleTextChange} />
-                </label>
-                <button type="submit">Submit</button>
-            </form> */}
           </section>
-          
+        
     </section>
   )
 }

@@ -6,21 +6,28 @@ const StudentDetailsForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form submitted with:", formInput);
+    reset();
+    // update "notes" key which is an array of abjects in data
   };
 
   const handleTextChange = (event) => {
-    setFormInput({ ...formInput, [event.target.name]: event.target.value });
+    setFormInput(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
   };
+
+  const reset = () => {
+    setFormInput({ author: '', comment: '' });
+  }
+
   return (
     <section>
         <form onSubmit={handleSubmit}>
           <label>
             Author:
-          <input name="author" onChange={handleTextChange} />
+            <input name="author" type="text" value={formInput.author} onChange={handleTextChange} />
           </label>
           <label>
             Comment:
-          <input name="comment" onChange={handleTextChange} />
+            <input name="comment" type="text" value={formInput.comment} onChange={handleTextChange} />
           </label>
           <button type="submit">Submit</button>
         </form>
