@@ -37,19 +37,20 @@ const Aside = ({ students, filterStudents }) => {
         for (const cohort of allCohorts) {
             // console.log(cohort);
             const arr = cohort.split(" ");
-            const currYear = seasonsAndYearsObj[arr[1]];
-            if (currYear) {
-                seasonsAndYearsObj[arr[1]].push(cohort);
+            const yr = arr[1];
+            const currCohorts = seasonsAndYearsObj[yr];
+            if (currCohorts) {
+                seasonsAndYearsObj[yr].push(cohort);
             } else {
-                seasonsAndYearsObj[arr[1]] = [cohort];
+                seasonsAndYearsObj[yr] = [cohort];
             }
             console.log(seasonsAndYearsObj);
         }
 
         // get all keys from 2015
-
+        const cohorts2015 = seasonsAndYearsObj["2015"];
         // sort those keys
-
+        const sorted2015 = cohorts2015.sort();
         // ...
 
         const sorted = allCohorts.sort((a, b) => {
