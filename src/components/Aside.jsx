@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 
 const Aside = ({ students, filterStudents }) => {
     const [sortedCohorts, setSortedCohorts] = useState(null);
-
     const getAllCohorts = () => {
         const cohorts = [];
         for (const student of students) {
@@ -32,19 +31,26 @@ const Aside = ({ students, filterStudents }) => {
     allCohorts = standardiseCohorts();
 
     const sortCohorts = () => {
-        const seasonsAndYearsObj = {};
+        // const seasonsAndYearsObj = {};
+        const seasonOrder = {
+            "Winter": 1,
+            "Spring": 2,
+            "Summer": 3,
+            "Fall": 4
+        };
 
-        for (const cohort of allCohorts) {
-            // console.log(cohort);
-            const arr = cohort.split(" ");
-            const currYear = seasonsAndYearsObj[arr[1]];
-            if (currYear) {
-                seasonsAndYearsObj[arr[1]].push(cohort);
-            } else {
-                seasonsAndYearsObj[arr[1]] = [cohort];
-            }
-            console.log(seasonsAndYearsObj);
-        }
+        // for (const cohort of allCohorts) {
+        //     // console.log(cohort);
+        //     const arr = cohort.split(" ");
+        //     const currYear = seasonsAndYearsObj[arr[1]];
+        //     if (currYear) {
+        //         seasonsAndYearsObj[arr[1]].push(cohort);
+        //     } else {
+        //         seasonsAndYearsObj[arr[1]] = [cohort];
+        //     }
+        //     console.log(seasonsAndYearsObj);
+        // }
+        
 
         // get all keys from 2015
 
@@ -52,21 +58,45 @@ const Aside = ({ students, filterStudents }) => {
 
         // ...
 
+        // const sorted = allCohorts.sort((a, b) => {
+        //     const year1 = Number(a.split(" ")[1]);
+        //     const year2 = Number(b.split(" ")[1]);
+        //     if (year1 < year2) {
+        //         return -1;
+        //     } else if (year1 > year2) {
+        //         return 1;
+        //     } else {
+        //         return 0;
+        //     }
+        // });
+        /*sort by year first then season*/
         const sorted = allCohorts.sort((a, b) => {
-            const year1 = Number(a.split(" ")[1]);
-            const year2 = Number(b.split(" ")[1]);
-            if (year1 < year2) {
-                return -1;
-            } else if (year1 > year2) {
-                return 1;
-            } else {
-                return 0;
-            }
+            const [seasonA, yearA] = a.split(" ");
+            const [seasonB, yearB] = b.split(" ");
+
+            const yearComparison = Number(yearA) - Number(yearB);
+            if (yearComparison !== 0) return yearComparison;
+
+            return seasonOrder[seasonA] - seasonOrder[seasonB];
         });
+        //Original code:
+        // const sorted = allCohorts.sort((a, b) => {
+        //     const [seasonA, yearA] = a.split(" ");
+        //     const [seasonB, yearB] = b.split(" ");
+
+        //     const yearComparison = Number(yearA) - Number(yearB);
+        //     if (yearComparison !== 0) return yearComparison;
+
+        //     return seasonOrder[seasonA] - seasonOrder[seasonB];
+        // });
 
         // console.log(sorted);
-        return sorted;
+        //return sorted;
+        setSortedCohorts(sorted);
     };
+    useEffect(() => {
+        sortCohorts();
+    }, [students]);
 
     return (
         <aside>
