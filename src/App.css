@@ -1,9 +1,4 @@
-section.container {
-    display: flex;
-    justify-content: flex-start;
-}
-
-section.students {
+.container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
 }

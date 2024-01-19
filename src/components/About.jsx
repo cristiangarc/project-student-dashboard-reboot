@@ -6,7 +6,7 @@ const About = () => {
         {
             name: "Cristian Garcia",
             github: "https://github.com/cristiangarc",
-            funFact: "I've traveled to ~20 states across the US",
+            funFact: "I love eating at restaurants",
         },
         {
             name: "Julissa Garcia",
