@@ -1,38 +1,77 @@
 import { useState } from "react";
 
-const StudentDetailsForm = () => {
-  const [formInput, setFormInput] = useState({ author: '', comment: '' });
+import { useParams, useNavigate } from "react-router-dom";
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Form submitted with:", formInput);
-    reset();
-    // update "notes" key which is an array of abjects in data
-  };
+import { updateStudentComment } from "./api";
 
-  const handleTextChange = (event) => {
-    setFormInput(prevState => ({ ...prevState, [event.target.name]: event.target.value }));
-  };
+const StudentDetailsForm = ({ student }) => {
+    const [formInput, setFormInput] = useState({ author: "", comment: "" });
+    const [studentVar, setStudentVar] = useState(student);
+    const { id } = useParams();
 
-  const reset = () => {
-    setFormInput({ author: '', comment: '' });
-  }
+    const navigate = useNavigate();
 
-  return (
-    <section>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Author:
-            <input name="author" type="text" value={formInput.author} onChange={handleTextChange} />
-          </label>
-          <label>
-            Comment:
-            <input name="comment" type="text" value={formInput.comment} onChange={handleTextChange} />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-    </section>
-  )
-}
+    const addStudentComment = () => {
+        const studentObj = studentVar;
+        studentObj.notes.push({
+            commenter: `${formInput.author}`,
+            comment: `${formInput.comment}`,
+        });
+        console.log(studentObj);
+        setStudentVar(studentObj);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("Form submitted with:", formInput);
+        // add the new comment to the student state
+        addStudentComment();
+        // make an api call to update the student's JSON file
+        updateStudentComment(id, studentVar)
+            .then(() => {
+                navigate(`/${id}/student`);
+            })
+            .catch((error) => console.error(error));
+        reset();
+        // update "notes" key which is an array of abjects in data
+    };
+
+    const handleTextChange = (event) => {
+        setFormInput((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+        }));
+    };
+
+    const reset = () => {
+        setFormInput({ author: "", comment: "" });
+    };
+
+    return (
+        <section>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Author:
+                    <input
+                        name="author"
+                        type="text"
+                        value={formInput.author}
+                        onChange={handleTextChange}
+                    />
+                </label>
+                <label>
+                    Comment:
+                    <input
+                        name="comment"
+                        type="text"
+                        value={formInput.comment}
+                        onChange={handleTextChange}
+                    />
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    );
+};
 
 export default StudentDetailsForm;

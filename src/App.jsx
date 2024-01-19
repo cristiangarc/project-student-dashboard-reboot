@@ -4,12 +4,13 @@ import AllStudents from "./components/AllStudents";
 import StudentDetails from "./components/StudentDetails";
 import { Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import students from "./data/data.json";
+// import students from "./data/data.json";
 import { getAllStudents } from "./components/api.js";
 
 import "./App.css";
 
 function App() {
+    const [allStudents, setAllStudents] = useState([]);
     const [filteredStudents, setFilteredStudents] = useState([]);
     const determineTrackStatusStudentDetails = (students) => {
         return students.map((student) => {
@@ -27,9 +28,9 @@ function App() {
     const filterStudents = (cohort) => {
         const cohortNoSpace = cohort.replace(" ", "");
         if (cohortNoSpace === "all") {
-            setFilteredStudents(students);
+            setFilteredStudents(allStudents);
         } else {
-            const filtered = students.filter(
+            const filtered = allStudents.filter(
                 (student) => student["cohort"]["cohortCode"] === cohortNoSpace
             );
             setFilteredStudents(filtered);
@@ -38,7 +39,12 @@ function App() {
     };
 
     useEffect(() => {
-        setFilteredStudents(students);
+        getAllStudents()
+            .then((data) => {
+                setAllStudents(data);
+                setFilteredStudents(data);
+            })
+            .catch((error) => console.error(error));
     }, []);
 
     return (
@@ -47,7 +53,7 @@ function App() {
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
             <section className="container">
-                <Aside students={students} filterStudents={filterStudents} />
+                <Aside students={allStudents} filterStudents={filterStudents} />
                 <Routes>
                     <Route
                         path="/"
@@ -58,7 +64,7 @@ function App() {
                         path="/:id/student"
                         element={
                             <StudentDetails
-                                students={students}
+                                students={allStudents}
                                 determineTrackStatusStudentDetails={
                                     determineTrackStatusStudentDetails
                                 }

@@ -1,6 +1,8 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
-import StudentDetailsForm from './StudentDetailsForm';
+import React from "react";
+import { useParams } from "react-router-dom";
+import StudentDetailsForm from "./StudentDetailsForm";
+
+import { v4 } from "uuid";
 
 const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
     const { id } = useParams();
@@ -34,6 +36,7 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
             "November",
             "December",
         ];
+
         const dobArr = student.dob.split("/");
         const monthIndex = dobArr[0] - 1;
         const day = dobArr[1];
@@ -59,7 +62,7 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
                             {student.names.middleName} {student.names.surname}
                         </li>
                         <li>Email: {student.username}</li>
-                        <li>Date of Birth: {student.dob}</li>
+                        <li>Date of Birth: {getBirthdayString(student)}</li>
                         {/* Boolean stuff to determine ontrack/offtrack status */}
                         <li>
                             Status:{" "}
@@ -122,7 +125,15 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
                         </li>
                     </ul>
                 </div>
-                <StudentDetailsForm />
+                <StudentDetailsForm student={student} />
+                <h3>Comments:</h3>
+                <ul>
+                    {student.notes.map((note) => (
+                        <li key={v4()}>
+                            {note.commenter}: {note.comment}
+                        </li>
+                    ))}
+                </ul>
                 {/* <form onSubmit={handleSubmit}>
                 <label>
                 Author:
