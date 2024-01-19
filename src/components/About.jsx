@@ -11,12 +11,12 @@ const About = () => {
         {
             name: "Julissa Garcia",
             github: "https://github.com/JuliGarc91",
-            funFact: "",
+            funFact: "I love mafia movies; my fave is GoodFellas",
         },
         {
             name: "Enoch Tagoe",
             github: "https://github.com/EnochTagoe1",
-            funFact: "",
+            funFact: "I love travelling",
         },
     ];
 
