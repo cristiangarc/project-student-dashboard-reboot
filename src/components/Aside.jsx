@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 
 const Aside = ({ students, filterStudents }) => {
-    // const [sortedCohorts, setSortedCohorts] = useState(null);
     const [sortedCohorts, setSortedCohorts] = useState([]); // New line added
     const [ascending, setAscending] = useState(true); // State to track sorting order
 
