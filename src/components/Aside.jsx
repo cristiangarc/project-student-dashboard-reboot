@@ -39,6 +39,7 @@ const Aside = ({ students, filterStudents }) => {
             "Fall": 4
         };
 
+
         // for (const cohort of allCohorts) {
         //     // console.log(cohort);
         //     const arr = cohort.split(" ");
@@ -51,11 +52,25 @@ const Aside = ({ students, filterStudents }) => {
         //     console.log(seasonsAndYearsObj);
         // }
         
+        /*
+        for (const cohort of allCohorts) {
+            // console.log(cohort);
+            const arr = cohort.split(" ");
+            const yr = arr[1];
+            const currCohorts = seasonsAndYearsObj[yr];
+            if (currCohorts) {
+                seasonsAndYearsObj[yr].push(cohort);
+            } else {
+                seasonsAndYearsObj[yr] = [cohort];
+            }
+            console.log(seasonsAndYearsObj);
+        } */
+
 
         // get all keys from 2015
-
+        //const cohorts2015 = seasonsAndYearsObj["2015"];
         // sort those keys
-
+        //const sorted2015 = cohorts2015.sort();
         // ...
 
         // const sorted = allCohorts.sort((a, b) => {
@@ -79,16 +94,6 @@ const Aside = ({ students, filterStudents }) => {
 
             return seasonOrder[seasonA] - seasonOrder[seasonB];
         });
-        //Original code:
-        // const sorted = allCohorts.sort((a, b) => {
-        //     const [seasonA, yearA] = a.split(" ");
-        //     const [seasonB, yearB] = b.split(" ");
-
-        //     const yearComparison = Number(yearA) - Number(yearB);
-        //     if (yearComparison !== 0) return yearComparison;
-
-        //     return seasonOrder[seasonA] - seasonOrder[seasonB];
-        // });
 
         // console.log(sorted);
         //return sorted;
