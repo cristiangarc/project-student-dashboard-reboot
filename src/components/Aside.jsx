@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { v4 } from "uuid";
 
 const Aside = ({ students, filterStudents }) => {
