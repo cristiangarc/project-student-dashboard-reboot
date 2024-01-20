@@ -1,3 +1,93 @@
-.details {
-    background-color: red;
+:root {
+    --black: #000000;
+    --white: #fffcf9;
+    --primary: #ffd069;
+    /* --font-zen: "Zen Kaku Gothic Antique", sans-serif; */
+}
+body, html {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: auto;
+    min-width: 80%;
+    /* padding: 0; */
+    padding-bottom: 15%;
+}
+
+.student-list {
+  width: 70%;
+  margin-left: 10%;
+}
+
+.students {
+margin-top: 1em;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+div.student {
+  border-radius: 3px;
+  display: block;
+  margin-left: 10%;
+  text-align: center;
+  /* background-color: rgba(24, 54, 189, 0.801); */
+  background: url(https://science.nasa.gov/_ipx/animated_true&w_2048&f_webp/https://images-assets.nasa.gov/image/PIA10497/PIA10497~orig.jpg%3Fw=1013%26h=1018%26fit=clip%26crop=faces%252Cfocalpoint);
+  background-size: cover;
+  background-position: fixed;
+}
+
+img, .profile-pic {
+    margin-top: 1em;
+    margin-left: auto;  /* Centers the image horizontally */
+    margin-right: auto; /* Centers the image horizontally */
+    border-radius: 50%;
+    max-width: 70%;
+    display: block;
+}
+
+.all-students-h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: auto;
+  top: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin: auto;
+  top: 5px; 
+}
+
+h3 {
+  text-align: center;
+  color: var(--primary);
+  font-weight: 300;
+  margin: 0;
+}
+
+.student-ul {
+    height: 12vw;
+    width: auto;
+    list-style-type: none; /* Removes bullet points */
+    text-align: center;   /* Centers the text */
+    padding: 0; 
+    overflow-x: auto; /* Horizontal scroll bar will appear if the content overflows */
+    overflow-y: auto;
+    margin-bottom: 25px;
+
+}
+li {
+    overflow-wrap: break-word;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.36);
+    font-size: 10px;
+    margin: 2px auto;
+    border-radius: 5px;
+}
+
+.student-list a, .student-list a:link, .student-list a:visited, .student-list a:hover, .student-list a:active, .student-list a:focus {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Keeps the link color consistent with the parent element */
 }

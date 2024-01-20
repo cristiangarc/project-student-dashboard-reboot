@@ -50,7 +50,7 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
     const calculatePercentage = (current, goal) =>
         ((current / goal) * 100).toFixed(2);
     return (
-        <section className="details">
+        <section className="student">
             <section>
                 <div key={student.id}>
                     <img

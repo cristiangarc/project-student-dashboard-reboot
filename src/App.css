@@ -3,7 +3,7 @@ section.container {
     justify-content: flex-start;
 }
 
-section.students {
+/* section.students {
     display: grid;
-    grid-template-columns: 1fr;
-}
+    grid-template-columns: 1fr 1fr 1fr;
+} */
