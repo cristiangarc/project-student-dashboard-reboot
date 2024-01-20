@@ -1,9 +1,27 @@
-section.container {
-    display: flex;
-    justify-content: flex-start;
+:root {
+    --black: #000000;
+    --white: #fffcf9;
+    --primary: #ffd069;
+    /* --font-zen: "Zen Kaku Gothic Antique", sans-serif; */
+}
+body, html {
+    background-color: var(--black);
+    color: var(--white);
+    /* font-family: Helvetica, Arial, sans-serif; */
+    font-size: 16px;
+    margin: auto;
+    min-width: 80%;
+    /* padding: 0; */
+    padding-bottom: 15%;
 }
 
-/* section.students {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-} */
+h1.title {
+    text-align: center;
+}
+
+.container {
+    margin-top: 1em;
+      display: grid;
+      gap: 1em;
+      grid-template-columns: 1fr 2fr;
+    }

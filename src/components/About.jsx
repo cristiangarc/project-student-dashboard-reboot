@@ -6,7 +6,7 @@ const About = () => {
         {
             name: "Cristian Garcia",
             github: "https://github.com/cristiangarc",
-            funFact: "I've traveled to ~20 states across the US",
+            funFact: "I love eating at restaurants",
         },
         {
             name: "Julissa Garcia",
@@ -21,16 +21,20 @@ const About = () => {
     ];
 
     return (
-        <div className="members">
-            {teamMembers.map((member) => (
-                <div key={v4()} className="team-member">
-                    <p>Name: {member.name}</p>
-                    <a href={member.github} target="_blank">
-                        Github: {member.github}
-                    </a>
-                    <p>Fun Fact: {member.funFact}</p>
-                </div>
-            ))}
+        <div>
+            <h2>Team Members</h2>
+            <div className="members">
+                {teamMembers.map((member) => (
+                    <div key={v4()} className="team-member">
+                        <p>{member.name}</p>
+                        <a href={member.github} target="_blank">
+                            Github: {member.github}
+                        </a>
+                        <p>Fun Fact:</p>
+                        <p>"{member.funFact}"</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

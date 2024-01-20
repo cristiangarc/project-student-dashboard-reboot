@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AllStudents = ({ students, getCohort }) => {
+const AllStudents = ({ students, getCohort, getBirthdayString }) => {
     const determineTrackStatusAll = (student) => {
         const isOnTrack =
             student.certifications.resume &&
@@ -41,7 +41,7 @@ const AllStudents = ({ students, getCohort }) => {
                                 {student.names.surname}
                             </li>
                             <li>Email: {student.username}</li>
-                            <li>Date of Birth: {student.dob}</li>
+                            <li>Date of Birth: {getBirthdayString(student)}</li>
                             <li>
                                 Status: {determineTrackStatusAll(student)}
                             </li>{" "}

@@ -1,11 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import StudentDetailsForm from "./StudentDetailsForm";
-import "./StudentDetails.css"
+import "./StudentDetails.css";
 
 import { v4 } from "uuid";
 
-const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
+const StudentDetails = ({
+    students,
+    determineTrackStatusStudentDetails,
+    getBirthdayString,
+}) => {
     const { id } = useParams();
     const student = students.find((s) => s.id === id);
 
@@ -21,31 +25,6 @@ const StudentDetails = ({ students, determineTrackStatusStudentDetails }) => {
     // const handleTextChange = (event) => {
     //   setFormInput({ ...formInput, [event.target.name]: event.target.value });
     // };
-
-    const getBirthdayString = (student) => {
-        const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-        ];
-
-        const dobArr = student.dob.split("/");
-        const monthIndex = dobArr[0] - 1;
-        const day = dobArr[1];
-        const year = dobArr[2];
-        const dateObj = new Date(year, monthIndex, day);
-        const month = months[dateObj.getMonth()];
-        return `${month} ${day}, ${year}`;
-    };
 
     const calculatePercentage = (current, goal) =>
         ((current / goal) * 100).toFixed(2);
