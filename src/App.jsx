@@ -68,7 +68,7 @@ function App() {
 
     return (
         <div>
-            <h1>Student Dashboard</h1>
+            <h1 className="title">Student Dashboard</h1>
             <Link to={"/"}>Home </Link>
             <Link to={"/about"}>About</Link>
             <section className="container">
