@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
+import { Link } from "react-router-dom";
 
 const Aside = ({ students, filterStudents }) => {
     const [sortedCohorts, setSortedCohorts] = useState([]); // New line added
@@ -35,10 +36,10 @@ const Aside = ({ students, filterStudents }) => {
     const sortCohorts = () => {
         // Removed previous commented code for clarity
         const seasonOrder = {
-            "Winter": 1,
-            "Spring": 2,
-            "Summer": 3,
-            "Fall": 4
+            Winter: 1,
+            Spring: 2,
+            Summer: 3,
+            Fall: 4,
         };
         // for (const cohort of allCohorts) {
         //     // console.log(cohort);
@@ -51,7 +52,7 @@ const Aside = ({ students, filterStudents }) => {
         //     }
         //     console.log(seasonsAndYearsObj);
         // }
-        
+
         /*
         for (const cohort of allCohorts) {
             // console.log(cohort);
@@ -82,9 +83,12 @@ const Aside = ({ students, filterStudents }) => {
             const [seasonB, yearB] = b.split(" ");
 
             const yearComparison = Number(yearA) - Number(yearB);
-            if (yearComparison !== 0) return ascending ? yearComparison : -yearComparison; // the syntax -yearComparison is used to reverse the order of comparison for the years
+            if (yearComparison !== 0)
+                return ascending ? yearComparison : -yearComparison; // the syntax -yearComparison is used to reverse the order of comparison for the years
 
-            return ascending ? (seasonOrder[seasonA] - seasonOrder[seasonB]) : (seasonOrder[seasonB] - seasonOrder[seasonA]); // if ascending true then sorted like this seasonOrder[seasonA] - seasonOrder[seasonB]
+            return ascending
+                ? seasonOrder[seasonA] - seasonOrder[seasonB]
+                : seasonOrder[seasonB] - seasonOrder[seasonA]; // if ascending true then sorted like this seasonOrder[seasonA] - seasonOrder[seasonB]
             // seasonOrder[seasonA] accesses the numerical value associated with the season seasonA same for B
             //positive number means "place a before b" (since seasonA is later in the year than seasonB), and a negative number means "place b before a
         });
@@ -96,7 +100,8 @@ const Aside = ({ students, filterStudents }) => {
         sortCohorts();
     }, [students, ascending]); // added ascending to useEffect that way sorting stuff changes depending on whenever ascending useState changes too (not just students)
 
-    const toggleSortOrder = () => { // handler to switch sorting order
+    const toggleSortOrder = () => {
+        // handler to switch sorting order
         setAscending(!ascending);
     };
 
@@ -105,19 +110,27 @@ const Aside = ({ students, filterStudents }) => {
             <h2>Choose a Class by Start Date</h2>
             {/* <button onClick={sortCohorts}>Sort Descending By Year</button> */}
             {/* the button text now reflects the current sort order, indicating what action (ascending or descending sort) will be performed when it is clicked next */}
-            <button onClick={toggleSortOrder}>Sort {ascending ? "Descending" : "Ascending"} By Year</button>
+            <button onClick={toggleSortOrder}>
+                Sort {ascending ? "Descending" : "Ascending"} By Year
+            </button>
             <ul>
-                <li key={v4()} onClick={() => filterStudents("all")}>
-                    All Students
-                </li>
-                {/* {allCohorts.map((cohort) => (
-                    <li key={v4()} onClick={() => filterStudents(cohort)}>
-                        {cohort}
-                    </li> */}
+                <Link
+                    to={"/"}
+                    key={v4()}
+                    onClick={() => filterStudents("all")}
+                    className="link"
+                >
+                    <h3>All Students</h3>
+                </Link>
                 {sortedCohorts.map((cohort) => (
-                    <li key={v4()} onClick={() => filterStudents(cohort)}>
-                        {cohort}
-                    </li>
+                    <Link
+                        to={"/"}
+                        key={v4()}
+                        onClick={() => filterStudents(cohort)}
+                        className="link"
+                    >
+                        <h3>{cohort}</h3>
+                    </Link>
                 ))}
             </ul>
         </aside>
