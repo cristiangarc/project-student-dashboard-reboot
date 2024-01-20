@@ -19,7 +19,7 @@ const AllStudents = ({ students, getCohort, getBirthdayString }) => {
                     ? "All Students"
                     : getCohort(students)}
         </h2>
-        <h3>Total Students: {students.length}</h3>
+        <h3 className="h3-total-students">Total Students: {students.length}</h3>
         <section className="students">
             {/* <h2>
                 {getCohort(students) === "all"
