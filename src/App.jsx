@@ -57,6 +57,31 @@ function App() {
         }
     };
 
+    const getBirthdayString = (stdnt) => {
+        const months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+
+        const dobArr = stdnt.dob.split("/");
+        const monthIndex = dobArr[0] - 1;
+        const day = dobArr[1];
+        const year = dobArr[2];
+        const dateObj = new Date(year, monthIndex, day);
+        const month = months[dateObj.getMonth()];
+        return `${month} ${day}, ${year}`;
+    };
+
     useEffect(() => {
         getAllStudents()
             .then((data) => {
@@ -80,6 +105,7 @@ function App() {
                             <AllStudents
                                 students={filteredStudents}
                                 getCohort={getCohort}
+                                getBirthdayString={getBirthdayString}
                             />
                         }
                     ></Route>
@@ -92,6 +118,7 @@ function App() {
                                 determineTrackStatusStudentDetails={
                                     determineTrackStatusStudentDetails
                                 }
+                                getBirthdayString={getBirthdayString}
                             />
                         }
                     />
