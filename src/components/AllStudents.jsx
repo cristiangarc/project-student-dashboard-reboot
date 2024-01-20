@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AllStudents = ({ students, getCohort }) => {
+const AllStudents = ({ students, getCohort, getBirthdayString }) => {
     const determineTrackStatusAll = (student) => {
         const isOnTrack =
             student.certifications.resume &&
@@ -13,28 +13,35 @@ const AllStudents = ({ students, getCohort }) => {
     };
 
     return (
+        <section className="student-list">
+        <h2 className="all-students-h2">
+            {getCohort(students) === "all"
+                    ? "All Students"
+                    : getCohort(students)}
+        </h2>
+        <h3>Total Students: {students.length}</h3>
         <section className="students">
-            <h2>
+            {/* <h2>
                 {getCohort(students) === "all"
                     ? "All Students"
                     : getCohort(students)}
             </h2>
-            <h3>Total Students: {students.length}</h3>
+            <h3>Total Students: {students.length}</h3> */}
             {students.map((student) => (
                 <Link to={`/${student.id}/student`} key={student.id}>
-                    <div>
-                        <img
+                    <div className="student">
+                        <img className="profile-pic"
                             src={student.profilePhoto}
                             alt={`${student.names.preferredName}'s Profile`}
                         />
-                        <ul>
+                        <ul className="student-ul">
                             <li>
                                 Name: {student.names.preferredName}{" "}
                                 {student.names.middleName}{" "}
                                 {student.names.surname}
                             </li>
                             <li>Email: {student.username}</li>
-                            <li>Date of Birth: {student.dob}</li>
+                            <li>Date of Birth: {getBirthdayString(student)}</li>
                             <li>
                                 Status: {determineTrackStatusAll(student)}
                             </li>{" "}
@@ -43,6 +50,7 @@ const AllStudents = ({ students, getCohort }) => {
                     </div>
                 </Link>
             ))}
+        </section>
         </section>
     );
 };
