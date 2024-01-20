@@ -1,9 +1,12 @@
 section.container {
     display: flex;
     justify-content: flex-start;
+    background-color: aqua;
+   
 }
 
 section.students {
     display: grid;
     grid-template-columns: 1fr;
 }
+
