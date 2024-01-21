@@ -11,14 +11,14 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-bottom: 2px double var(--primary);
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Adjust the space between the links */
 }
 
 .title {
-    margin-bottom: 10px; /* Adjust space between title and links */
+    margin-bottom: 0.10em; /* Adjust space between title and links */
 }
