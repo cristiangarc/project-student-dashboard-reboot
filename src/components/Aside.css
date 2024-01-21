@@ -25,11 +25,11 @@ aside {
 
 .border-flip {
     display: inline-block;
-    padding: 15px;
+    padding: 5px;
     width: 180px;
     position: relative;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: 600;
     background: none;
     border: none;
@@ -56,12 +56,16 @@ aside {
     border: 3px solid rgb(254, 198, 77);
   } 
    
-  .btn {
+  /* .btn {
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
-  } 
+  }  */
    
   .btn:hover .btn-slide-show-text1 {
     margin-left: 65px;
   } 
+
+  span {
+    font-size: 10px;
+  }
    
