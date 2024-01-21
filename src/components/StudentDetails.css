@@ -21,7 +21,6 @@ div.student {
   display: block;
   margin-left: 10%;
   text-align: center;
-  /* background-color: rgba(24, 54, 189, 0.801); */
   background: url(https://science.nasa.gov/_ipx/animated_true&w_2048&f_webp/https://images-assets.nasa.gov/image/PIA10497/PIA10497~orig.jpg%3Fw=1013%26h=1018%26fit=clip%26crop=faces%252Cfocalpoint);
   background-size: cover;
   background-position: fixed;
@@ -31,7 +30,7 @@ img, .profile-pic {
     margin-top: 1em;
     margin-left: auto;  /* Centers the image horizontally */
     margin-right: auto; /* Centers the image horizontally */
-    border-radius: 50%;
+    border-radius: 25%;
     max-width: 70%;
     display: block;
 }
