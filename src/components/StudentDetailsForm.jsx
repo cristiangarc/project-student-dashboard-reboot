@@ -70,6 +70,14 @@ const StudentDetailsForm = ({ student }) => {
                 </label>
                 <button type="submit">Submit</button>
             </form>
+            <h3>Comments:</h3>
+            <ul>
+                {student.notes.map((note) => (
+                    <li key={v4()}>
+                        {note.commenter}: {note.comment}
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 };

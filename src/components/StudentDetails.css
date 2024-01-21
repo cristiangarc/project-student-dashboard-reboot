@@ -15,6 +15,11 @@ body, html {
     padding-bottom: 15%;
 }
 
+.student {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .student-list {
   width: 70%;
   margin-left: 10%;
@@ -90,4 +95,13 @@ li {
 .student-list a, .student-list a:link, .student-list a:visited, .student-list a:hover, .student-list a:active, .student-list a:focus {
     text-decoration: none; /* Removes underline */
     color: inherit; /* Keeps the link color consistent with the parent element */
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.scores div {
+  display: inline;
 }
