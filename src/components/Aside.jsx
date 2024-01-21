@@ -109,7 +109,7 @@ const Aside = ({ students, filterStudents }) => {
     return (
         <aside>
             <h2 className="h2-aside">Choose a Class by Start Date</h2>
-            <div class="flex-container">
+            <div className="flex-container">
             <button 
             className="border-flip border-flip--orange btn"
             onClick={toggleSortOrder}
