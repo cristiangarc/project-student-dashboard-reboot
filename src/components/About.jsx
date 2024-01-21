@@ -27,8 +27,9 @@ const About = () => {
                 {teamMembers.map((member) => (
                     <div key={v4()} className="team-member">
                         <p>{member.name}</p>
+                        <p>Github:</p>
                         <a href={member.github} target="_blank">
-                            Github: {member.github}
+                            {member.github}
                         </a>
                         <p>Fun Fact:</p>
                         <p>"{member.funFact}"</p>
