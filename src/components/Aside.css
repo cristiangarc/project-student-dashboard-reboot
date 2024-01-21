@@ -1,11 +1,27 @@
-.link, .link a:visited {
+.link, .link Link:visited {
     font-size: 10px;
     font-style: bold;
     color: var(--primary);
-    text-align: center;
     text-decoration: none;
 }
-/* .btn {  font-family: Arial, Helvetica, sans-serif;  text-transform: uppercase;}  .btn:hover .btn-slide-show-text1 {  margin-left: 65px;}  .btn-fill-bottom {  border: none;  outline: none;  background: none;  text-align: center;  display: inline-block;  width: 180px;  height: 40px;  margin: 20px;  position: relative;  overflow: hidden;  transition: color 0.5s ease 0s;}  .btn-fill-bottom::before {  content: "";  position: absolute;  z-index: -1;  height: 200px;  width: 250px;  border-radius: 50%;  top: 100%;  left: 100%;  transition: all 0.7s ease 0s;}  .btn-fill-bottom:hover {  color: rgb(255, 255, 255);}  .btn-fill-bottom:hover::before {  top: -40px;  left: -40px;}  .btn-fill-bottom--orange {  color: rgb(254, 198, 77);  border: 2px solid rgb(254, 198, 77);}  .btn-fill-bottom--orange::before {  background: rgb(254, 198, 77);}   */
+aside {
+  margin: 0;
+  width: 80%;
+}
+.h2-aside {
+  text-align: center;
+  margin: auto;
+}
+
+.link a, .link a:link, .link a:visited, .link a:hover, .link a:active, .link a:focus {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Keeps the link color consistent with the parent element */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
 
 .border-flip {
     display: inline-block;
