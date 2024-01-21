@@ -5,6 +5,11 @@ section.students {
 gap: 1em;
 }
 
+.student {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .student-list {
   width: 80%;
   /* margin-left: 20%; */
@@ -74,4 +79,13 @@ li {
 .student-list a, .student-list a:link, .student-list a:visited, .student-list a:hover, .student-list a:active, .student-list a:focus {
     text-decoration: none;
     color: inherit;
+}
+
+.scores {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.scores div {
+  display: inline;
 }
