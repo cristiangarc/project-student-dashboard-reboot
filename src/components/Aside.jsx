@@ -108,12 +108,8 @@ const Aside = ({ students, filterStudents }) => {
 
     return (
         <aside>
-            <h2>Choose a Class by Start Date</h2>
-            {/* <button onClick={sortCohorts}>Sort Descending By Year</button> */}
-            {/* the button text now reflects the current sort order, indicating what action (ascending or descending sort) will be performed when it is clicked next */}
-            {/* <button onClick={toggleSortOrder}>
-                Sort {ascending ? "Descending" : "Ascending"} By Year
-            </button> */}
+            <h2 className="h2-aside">Choose a Class by Start Date</h2>
+            <div className="flex-container">
             <button 
             className="border-flip border-flip--orange btn"
             onClick={toggleSortOrder}
@@ -121,7 +117,8 @@ const Aside = ({ students, filterStudents }) => {
                 <span>Sort {ascending ? "Descending" : "Ascending"} By Year
             </span> 
             </button>
-            <ul>
+            </div>
+            <ul className="link">
                 <Link
                     to={"/"}
                     key={v4()}
@@ -137,7 +134,7 @@ const Aside = ({ students, filterStudents }) => {
                         onClick={() => filterStudents(cohort)}
                         // className="link"
                     >
-                        <h3 className="link">{cohort}</h3>
+                        <h3>{cohort}</h3>
                     </Link>
                 ))}
             </ul>

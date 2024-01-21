@@ -2,7 +2,6 @@
     --black: #000000;
     --white: #fffcf9;
     --primary: #ffd069;
-    /* --font-zen: "Zen Kaku Gothic Antique", sans-serif; */
 }
 body, html {
     background-color: var(--black);

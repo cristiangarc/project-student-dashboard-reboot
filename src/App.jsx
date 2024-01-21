@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getAllStudents } from "./components/api.js";
 
 import "./App.css";
+import Header from "./components/Header.jsx";
 
 function App() {
     const [allStudents, setAllStudents] = useState([]);
@@ -93,9 +94,7 @@ function App() {
 
     return (
         <div>
-            <h1 className="title">Student Dashboard</h1>
-            <Link to={"/"}>Home </Link>
-            <Link to={"/about"}>About</Link>
+            <Header/>
             <section className="container">
                 <Aside students={allStudents} filterStudents={filterStudents} />
                 <Routes>
