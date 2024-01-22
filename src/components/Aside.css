@@ -3,11 +3,14 @@
     font-style: bold;
     color: var(--primary);
     text-decoration: none;
+    padding: 0;
 }
 aside {
   margin: 0;
   width: 80%;
+  text-align: center;
 }
+
 .h2-aside {
   text-align: center;
   margin: auto;
@@ -68,4 +71,25 @@ aside {
   span {
     font-size: 10px;
   }
-   
+  
+  @media only screen and (max-width: 600px) {
+
+    aside {
+        margin: 0;
+        width: 100%; /* Adjusted for mobile screens */
+        /* text-align: center; */
+    }
+
+    .student {
+        grid-template-columns: 1fr; /* Adjusted for single column layout on mobile */
+    }
+
+    .student-list {
+        width: 100%; /* Adjusted for mobile screens */
+    }
+
+    .scores {
+        grid-template-columns: 1fr; /* Adjusted for single column layout on mobile */
+    }
+
+}
