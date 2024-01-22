@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 import { updateStudentComment } from "./api";
+import "./StudentDetailsForm.css"
 
 const StudentDetailsForm = ({ student }) => {
     const [formInput, setFormInput] = useState({ author: "", comment: "" });
@@ -48,7 +49,7 @@ const StudentDetailsForm = ({ student }) => {
     };
 
     return (
-        <section>
+        <section className="form-section">
             <form onSubmit={handleSubmit}>
                 <label>
                     Author:
@@ -68,7 +69,8 @@ const StudentDetailsForm = ({ student }) => {
                         onChange={handleTextChange}
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <br/>
+                <button className="border-flip border-flip--orange btn" type="submit">Submit</button>
             </form>
             <h3>Comments:</h3>
             <ul>

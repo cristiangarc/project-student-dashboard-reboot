@@ -1,0 +1,13 @@
+.form-section {
+    padding-top: 1em;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    width:min-content;
+    margin: auto;
+}
