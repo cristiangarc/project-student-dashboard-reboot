@@ -9,8 +9,8 @@ body, html {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: auto;
-    min-width: 80%;
-    /* padding: 0; */
+    width: fit-content;
+    /* border wasn't as big as page width / content until using "fit-content" */
     padding-bottom: 15%;
 }
 
@@ -22,5 +22,30 @@ h1.title {
     margin-top: 1em;
       display: grid;
       gap: 1em;
-      grid-template-columns: 1fr 2fr;
+}
+
+@media only screen and (max-width: 600px) {
+
+    body, html {
+        font-size: 14px; /* Adjusted for mobile, smaller font size */
+        margin: auto;
+        min-width: 100%; /* Adjusted for mobile, full width */
+        padding-bottom: 10%; /* Adjusted padding for mobile */
     }
+
+    h1.title {
+        text-align: center;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr; /* Adjusted for mobile, single column layout */
+        justify-items: center;
+        align-items: center;
+        margin: auto;
+        width: fit-content;
+    }
+/* justify-items: center; is used to center the content horizontally within each grid item.
+align-items: center; is used to center the content vertically within each grid item.
+ */
+}
