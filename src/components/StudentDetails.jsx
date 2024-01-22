@@ -35,7 +35,7 @@ const StudentDetails = ({
                             src={student.profilePhoto}
                             alt={`${student.names.preferredName}'s Profile`}
                         />
-                        <ul>
+                        <ul className="student-details-ul">
                             <li>
                                 Name: {student.names.preferredName}{" "}
                                 {student.names.middleName}{" "}
@@ -59,7 +59,7 @@ const StudentDetails = ({
                 <section className="scores">
                     <div>
                         <p>Codewars</p>
-                        <ul>
+                        <ul className="student-codewars-ul">
                             <li>
                                 Current Total: {student.codewars.current.total}
                             </li>
@@ -80,7 +80,7 @@ const StudentDetails = ({
                     </div>
                     <div>
                         <p>Scores</p>
-                        <ul>
+                        <ul className="student-codewars-ul">
                             <li>
                                 Assignments: {student.cohort.scores.assignments}
                             </li>
@@ -92,7 +92,7 @@ const StudentDetails = ({
                     </div>
                     <div>
                         <p>Certifications</p>
-                        <ul>
+                        <ul className="student-codewars-ul">
                             <li>
                                 Resume:{" "}
                                 {student.certifications.resume ? "Yes" : "No"}
