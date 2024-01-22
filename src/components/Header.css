@@ -13,6 +13,8 @@ header {
     flex-direction: column;
     border-bottom: 2px double var(--primary);
     min-width: 100%;
+    margin: auto;
+    width:max-content;
 }
 
 nav {
