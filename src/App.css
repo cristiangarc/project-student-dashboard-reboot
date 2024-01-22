@@ -2,12 +2,11 @@
     --black: #000000;
     --white: #fffcf9;
     --primary: #ffd069;
-    /* --font-zen: "Zen Kaku Gothic Antique", sans-serif; */
 }
 body, html {
     background-color: var(--black);
     color: var(--white);
-    /* font-family: Helvetica, Arial, sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     margin: auto;
     min-width: 80%;

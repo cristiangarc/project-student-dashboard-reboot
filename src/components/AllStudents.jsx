@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "./AllStudents.css";
+
 const AllStudents = ({ students, getCohort, getBirthdayString }) => {
     const determineTrackStatusAll = (student) => {
         const isOnTrack =
@@ -14,43 +16,46 @@ const AllStudents = ({ students, getCohort, getBirthdayString }) => {
 
     return (
         <section className="student-list">
-        <h2 className="all-students-h2">
-            {getCohort(students) === "all"
-                    ? "All Students"
-                    : getCohort(students)}
-        </h2>
-        <h3>Total Students: {students.length}</h3>
-        <section className="students">
-            {/* <h2>
+            <h2 className="all-students-h2">
                 {getCohort(students) === "all"
                     ? "All Students"
                     : getCohort(students)}
             </h2>
-            <h3>Total Students: {students.length}</h3> */}
-            {students.map((student) => (
-                <Link to={`/${student.id}/student`} key={student.id}>
-                    <div className="student">
-                        <img className="profile-pic"
-                            src={student.profilePhoto}
-                            alt={`${student.names.preferredName}'s Profile`}
-                        />
-                        <ul className="student-ul">
-                            <li>
-                                Name: {student.names.preferredName}{" "}
-                                {student.names.middleName}{" "}
-                                {student.names.surname}
-                            </li>
-                            <li>Email: {student.username}</li>
-                            <li>Date of Birth: {getBirthdayString(student)}</li>
-                            <li>
-                                Status: {determineTrackStatusAll(student)}
-                            </li>{" "}
-                            {/* Updated this line */}
-                        </ul>
-                    </div>
-                </Link>
-            ))}
-        </section>
+            <h3 className="h3-total-students">
+                Total Students: {students.length}
+            </h3>
+            <section className="students">
+                {students.map((student) => (
+                    <Link to={`/${student.id}/student`} key={student.id}>
+                        <div className="student">
+                            <img
+                                className="profile-pic"
+                                src={student.profilePhoto}
+                                alt={`${student.names.preferredName}'s Profile`}
+                            />
+                            <ul className="student-ul">
+                                <li>
+                                    {student.names.preferredName}{" "}
+                                    {student.names.middleName}{" "}
+                                    {student.names.surname}
+                                </li>
+                                <li>{student.username}</li>
+                                <li>{getBirthdayString(student)}</li>
+                                <li
+                                    className={
+                                        determineTrackStatusAll(student) ===
+                                        "On Track"
+                                            ? "green"
+                                            : "red"
+                                    }
+                                >
+                                    {determineTrackStatusAll(student)}
+                                </li>
+                            </ul>
+                        </div>
+                    </Link>
+                ))}
+            </section>
         </section>
     );
 };
