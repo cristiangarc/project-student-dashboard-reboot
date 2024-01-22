@@ -73,7 +73,7 @@ const StudentDetailsForm = ({ student }) => {
                 <button className="border-flip border-flip--orange btn" type="submit">Submit</button>
             </form>
             <h3>Comments:</h3>
-            <ul>
+            <ul className="comments">
                 {student.notes.map((note) => (
                     <li key={v4()}>
                         {note.commenter}: {note.comment}
