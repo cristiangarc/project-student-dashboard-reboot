@@ -12,7 +12,9 @@ section.students {
 }
 
 .student-list {
-  width: 80%;
+  /* width: 100%; */
+  margin: auto;
+  width: fit-content;
   /* margin-left: 20%; */
   border: #ffd069;
 }
