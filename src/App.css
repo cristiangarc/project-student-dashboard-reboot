@@ -8,9 +8,11 @@ body, html {
     color: var(--white);
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
-    margin: auto;
-    width: fit-content;
+    /* margin: auto;
+    width: fit-content; */
     /* border wasn't as big as page width / content until using "fit-content" */
+    text-align: center; /* Centers text and inline elements */
+    margin: 0;
     padding-bottom: 15%;
 }
 
@@ -23,10 +25,13 @@ h1.title {
       display: grid;
       gap: 1em;
       grid-template-columns: 1fr 2fr;
+
+      margin: auto;
+      width: fit-content;
 }
 
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 768px) {
+/* will apply the styles when the browser window is less than or equal to 768 pixels in width, which is typical for mobile devices */
     body, html {
         font-size: 14px; /* Adjusted for mobile, smaller font size */
         margin: auto;
