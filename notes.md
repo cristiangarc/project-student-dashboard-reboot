@@ -25,4 +25,10 @@ Contains:
 
 ![Cohort List Component](assets/COHORT_WIREFRAME.png)
 
-Test
+### Making page responsive and mobile friendly
+
+Viewport Meta Tag: Verify if the HTML file has the viewport meta tag in the <head> section. This tag ensures that the website is scaled correctly on mobile devices.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
