@@ -2,14 +2,14 @@ section.students {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 1em;
-  gap: 1em;
+  /* gap: 1em; */
   width: fit-content;
 }
 
 .student {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-right: 1em;
+  /* padding-right: 1em; */
   height: min-content;
 }
 
@@ -38,7 +38,7 @@ img, .profile-pic {
     margin-left: auto;  /* Centers the image horizontally */
     margin-right: auto; /* Centers the image horizontally */
     border-radius: 25%;
-    max-width: 70%;
+    max-width: 65%;
     display: block;
 }
 
@@ -189,14 +189,14 @@ p {
 }
 }
 
-@media only screen and (min-width: 769px) and (max-width: 1192px) {
+@media only screen and (min-width: 1200px) {
   section.students {
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* justify-items: center;
     align-items: center; */
   }
-  .student {
+  /* .student {
     display: grid;
     grid-template-columns: 1fr;
     padding-right: 1em;
@@ -205,7 +205,7 @@ p {
   .scores {
     display: grid;
     grid-template-columns: 1fr;
-  }
+  } */
   .student-ul, .student-details-ul {
     height: 20vw;
     width: auto;
@@ -217,41 +217,5 @@ p {
     margin-bottom: 25px;
 
 }
-.comments-ul {
-  height: 12vw;
-}
-p {
-  font-size: 12px;
-}
-.student-codewars-ul {
-  height: 15vw;
-  width: auto;
-  list-style-type: none; /* Removes bullet points */
-  text-align: center;   /* Centers the text */
-  padding: 0; 
-  /* overflow-x: auto;  */
-  /* Horizontal scroll bar will appear if the content overflows */
-  overflow-y: auto;
-  /* margin-bottom: 25px; */
-  }
-  li {
-    overflow-wrap: break-word;
-    width: 70%;
-    background-color: rgba(0, 0, 0, 0.36);
-    font-size: 10px;
-    margin: 2px auto;
-    border-radius: 5px;
-    list-style-type: none;
-    padding: 0;
-}
-.student-details-li {
-  overflow-wrap: break-word;
-  width: 70%;
-  background-color: rgba(0, 0, 0, 0.36);
-  font-size: 10px;
-  margin: 0;
-  border-radius: 5px;
-  list-style-type: none;
-  padding: 0;
-}
+
 }
