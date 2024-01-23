@@ -58,7 +58,7 @@ const StudentDetails = ({
 
                 <section className="scores">
                     <div>
-                        <p>Codewars</p>
+                        <p><strong>Codewars</strong></p>
                         <ul className="student-codewars-ul">
                             <li>
                                 Current Total: {student.codewars.current.total}
@@ -79,7 +79,7 @@ const StudentDetails = ({
                         </ul>
                     </div>
                     <div>
-                        <p>Scores</p>
+                        <p><strong>Scores</strong></p>
                         <ul className="student-codewars-ul">
                             <li>
                                 Assignments: {student.cohort.scores.assignments}
@@ -91,7 +91,7 @@ const StudentDetails = ({
                         </ul>
                     </div>
                     <div>
-                        <p>Certifications</p>
+                        <p><strong>Certifications</strong></p>
                         <ul className="student-codewars-ul">
                             <li>
                                 Resume:{" "}

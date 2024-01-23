@@ -52,7 +52,7 @@ const StudentDetailsForm = ({ student }) => {
         <section className="form-section">
             <form onSubmit={handleSubmit}>
                 <label>
-                    Author:
+                    <strong>Author:</strong>
                     <input
                         name="author"
                         type="text"
@@ -61,7 +61,7 @@ const StudentDetailsForm = ({ student }) => {
                     />
                 </label>
                 <label>
-                    Comment:
+                    <strong>Comment:</strong>
                     <input
                         name="comment"
                         type="text"
@@ -73,9 +73,9 @@ const StudentDetailsForm = ({ student }) => {
                 <button className="border-flip border-flip--orange btn" type="submit">Submit</button>
             </form>
             <h3>Comments:</h3>
-            <ul className="comments">
+            <ul className="comments-ul">
                 {student.notes.map((note) => (
-                    <li key={v4()}>
+                    <li key={v4()} className="comments-li">
                         {note.commenter}: {note.comment}
                     </li>
                 ))}
