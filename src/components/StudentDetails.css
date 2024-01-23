@@ -15,7 +15,7 @@ section.students {
 
 .student-list {
   /* width: 100%; */
-  margin: auto;
+  margin: 0;
   width: fit-content;
   /* margin-left: 20%; */
   border: #ffd069;
@@ -23,8 +23,10 @@ section.students {
 
 div.student {
   border-radius: 1em;
-  display: inline-block;
-  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 10%; */
+  width: fit-content;
   text-align: center;
   background: url(https://science.nasa.gov/_ipx/animated_true&w_2048&f_webp/https://images-assets.nasa.gov/image/PIA10497/PIA10497~orig.jpg%3Fw=1013%26h=1018%26fit=clip%26crop=faces%252Cfocalpoint);
   background-size: cover;
@@ -60,7 +62,7 @@ h2 {
   margin: 0;
 }
 
-.student-ul, .student-details-ul, .comments{
+.student-ul, .student-details-ul, .comments-ul{
     height: 12vw;
     width: auto;
     list-style-type: none; /* Removes bullet points */
@@ -69,7 +71,6 @@ h2 {
     overflow-x: auto; /* Horizontal scroll bar will appear if the content overflows */
     overflow-y: auto;
     margin-bottom: 25px;
-
 }
 
 .student-codewars-ul {
@@ -83,12 +84,14 @@ h2 {
   overflow-y: auto;
   /* margin-bottom: 25px; */
 }
-
+p {
+  font-size: 20px;
+}
 li {
     overflow-wrap: break-word;
     width: 70%;
     background-color: rgba(0, 0, 0, 0.36);
-    font-size: 10px;
+    font-size: 16px;
     margin: 2px auto;
     border-radius: 5px;
     list-style-type: none;
@@ -136,7 +139,7 @@ li {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .student-ul, .student-details-ul{
+  .student-ul, .student-details-ul {
     height: 20vw;
     width: auto;
     list-style-type: none; /* Removes bullet points */
@@ -147,7 +150,12 @@ li {
     margin-bottom: 25px;
 
 }
-
+.comments-ul {
+  height: 12vw;
+}
+p {
+  font-size: 12px;
+}
 .student-codewars-ul {
   height: 15vw;
   width: auto;
@@ -159,4 +167,91 @@ li {
   overflow-y: auto;
   /* margin-bottom: 25px; */
   }
+  li {
+    overflow-wrap: break-word;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.36);
+    font-size: 10px;
+    margin: 2px auto;
+    border-radius: 5px;
+    list-style-type: none;
+    padding: 0;
+}
+.student-details-li {
+  overflow-wrap: break-word;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.36);
+  font-size: 10px;
+  margin: 0;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1192px) {
+  section.students {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* justify-items: center;
+    align-items: center; */
+  }
+  .student {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+  .scores {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .student-ul, .student-details-ul {
+    height: 20vw;
+    width: auto;
+    list-style-type: none; /* Removes bullet points */
+    text-align: center;   /* Centers the text */
+    padding: 0; 
+    overflow-x: auto; /* Horizontal scroll bar will appear if the content overflows */
+    overflow-y: auto;
+    margin-bottom: 25px;
+
+}
+.comments-ul {
+  height: 12vw;
+}
+p {
+  font-size: 12px;
+}
+.student-codewars-ul {
+  height: 15vw;
+  width: auto;
+  list-style-type: none; /* Removes bullet points */
+  text-align: center;   /* Centers the text */
+  padding: 0; 
+  /* overflow-x: auto;  */
+  /* Horizontal scroll bar will appear if the content overflows */
+  overflow-y: auto;
+  /* margin-bottom: 25px; */
+  }
+  li {
+    overflow-wrap: break-word;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.36);
+    font-size: 10px;
+    margin: 2px auto;
+    border-radius: 5px;
+    list-style-type: none;
+    padding: 0;
+}
+.student-details-li {
+  overflow-wrap: break-word;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.36);
+  font-size: 10px;
+  margin: 0;
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
 }

@@ -8,14 +8,15 @@ body, html {
     color: var(--white);
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
-    /* margin: auto;
-    width: fit-content; */
+    margin: 0 auto;
+    /* width: fit-content; */
     /* border wasn't as big as page width / content until using "fit-content" */
     text-align: center; /* Centers text and inline elements */
-    margin: 0;
+    /* margin: 0; */
     padding-bottom: 15%;
     height: 1vw;
-    box-sizing: content-box;
+    box-sizing: border-box;
+    
 }
 
 h1.title {
@@ -30,6 +31,8 @@ h1.title {
       grid-template-columns: 1fr 2fr;
       margin: auto;
       width: fit-content;
+      /* padding-left: 1em;
+      padding-right: 1em; */
 }
 
 @media only screen and (max-width: 768px) {
@@ -50,8 +53,9 @@ h1.title {
         grid-template-columns: 1fr; /* Adjusted for mobile, single column layout */
         justify-items: center;
         align-items: center;
-        margin: auto;
+        margin: 0 auto;
         width: fit-content;
+
     }
 /* justify-items: center; is used to center the content horizontally within each grid item.
 align-items: center; is used to center the content vertically within each grid item.
